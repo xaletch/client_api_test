@@ -1,0 +1,12 @@
+.card__list {
+  padding: 180px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.card__list-notfound {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
