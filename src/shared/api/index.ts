@@ -9,15 +9,13 @@ export const API_MASK = async (url: string, data: any, token?: string): Promise<
       method: data.method,
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer' + token
+        ...(token && {'Authorization': `Bearer ${token}`})
       },
       // ...data,
       // data: data.body,
-      body: JSON.stringify(data.body),
+      ...(data.method !== 'GET' && {body: JSON.stringify(data.body)})
     });
-
-    console.log('data', data.body)
-
+    
     return res.json();
   }
   catch (err) {

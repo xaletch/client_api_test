@@ -8,13 +8,13 @@ export const setCookie = (key: string, value: string, day: number): void => {
 }
 
 export const getCookie = (name: string) => {
-  const cookies = document.cookie.split(';');
+  const cookies = document.cookie.split(";");
 
   for (let i = 0; i < cookies.length; i++) {
     const cookie = cookies[i].trim();
 
-    if (cookie.startsWith(name + '=')) {
-      return cookie.substring(name.length, +1);
+    if (cookie.startsWith(name + "=")) {
+      return cookie.substring(name.length + 1);
     }
   };
 
@@ -22,5 +22,5 @@ export const getCookie = (name: string) => {
 }
 
 export const removeCookie = (key: string): void => {
-  setCookie(key, '', -1);
+  document.cookie = `${key}=; expires=Thu, 01 Jan 2024 00:00:00 GMT; path=/;`;
 }
